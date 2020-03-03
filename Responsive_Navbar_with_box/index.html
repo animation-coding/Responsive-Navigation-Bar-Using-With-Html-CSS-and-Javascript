@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navigation Bar</title>
+   
+    <link rel="stylesheet" href="css/Fontawesome.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat',sans-serif;
+}
+nav{
+  background: #151515;
+  padding: 5px 40px;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li{
+  padding: 15px 0;
+  cursor: pointer;
+}
+nav ul li.items{
+  position: relative;
+  width: auto;
+  margin: 0 16px;
+  text-align: center;
+  order: 3;
+
+}
+
+nav ul li.items::before
+{
+  content: '';
+  background-color: #fc5f3c;
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  height: 2px;
+  width: calc(100% + 20px);
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+nav ul li.items:hover::before{
+  opacity: 1;
+}
+
+
+nav ul li.items::after
+{
+  content: '';
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: url(img/orange-light.png) no-repeat center center;
+  width: 39px;
+  height: 48px;
+  top: -7px;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+
+nav ul li.items:hover::after{
+  opacity: 1;
+}
+
+
+nav ul li.logo{
+  flex: 1;
+  color:#fc5f3c;
+  font-size: 23px;
+  font-weight: 600;
+  cursor: default;
+  user-select: none;
+}
+nav ul li a{
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+nav ul li:hover a{
+  color:#fc5f3c;
+}
+nav ul li i{
+  font-size: 23px;
+}
+nav ul li.btn{
+  display: none;
+}
+nav ul li.btn.hide i:before{
+  content: '\f00d';
+}
+@media all and (max-width: 900px){
+  nav{
+    padding: 5px 30px;
+  }
+  nav ul li.items{
+    width: 100%;
+    display: none;
+  }
+  nav ul li.items.show{
+    display: block;
+  }
+  nav ul li.btn{
+    display: block;
+  }
+  
+  nav ul li.items:hover:after{
+    opacity: 0;
+  }
+  nav ul li.items:hover::before{
+    opacity: 0;
+  }
+  
+nav ul li.items:hover{
+  background: #fc5f3c;
+}
+nav ul li:hover a{
+  color:#fff;
+}
+
+
+}
+
+
+</style>  
+    
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="logo">AnimationCoding</li>
+        <li class="items" active><a href="#">Home</a></li>
+        <li class="items"><a href="#">About</a></li>
+        <li class="items"><a href="#">Blogs</a></li>
+        <li class="items"><a href="#">Contact</a></li>
+        <li class="items"><a href="#">Feedback</a></li>
+        <li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+      </ul>
+    </nav>
+
+    <script src="js/jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.btn').click(function(){
+          $('.items').toggleClass("show");
+          $('ul li').toggleClass("hide");
+        });
+      });
+    </script>
+  </body>
+</html>

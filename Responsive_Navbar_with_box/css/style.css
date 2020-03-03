@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat',sans-serif;
+}
+nav
+{
+    background: #151515;
+    padding: 5px 40px;
+}
+nav ul
+{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+nav ul li
+{
+    padding: 15px 0;
+    cursor: pointer;
+}
+nav ul li.items
+{
+    position: relative;
+    width: auto;
+    margin: 0 16px;
+    text-align: center;
+    order: 3;
+}
+nav ul li.items::before
+{
+    content: '';
+    background-color: #fc5f3c;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: calc(100% + 20px);
+    height: 2px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+nav ul li.items:hover::before
+{
+    opacity: 1;
+}
+
+nav ul li.items::after
+{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -7px;
+    background: url(../img/orange-light.png)no-repeat center center;
+    width: 39px;
+    height: 48px;
+    transform: translateX(-50%);
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+nav ul li.items:hover::after
+{
+    opacity: 1;
+}
+nav ul li.logo
+{
+    flex: 1;
+    color: #fc5f3c;
+    font-weight: 600;
+    cursor: default;
+    user-select: none;
+    font-size: 23px;
+}
+nav ul li a
+{
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+nav ul li:hover a
+{
+    color:#fc5f3c
+
+}
+nav ul li i
+{
+    font-size: 23px;
+}
+nav ul li.btn
+{
+    display: none;
+}
+nav ul li.btn.hide i::before
+{
+    content: '\f00d';
+}
+
+
+
+/***responsive*****/
+@media all and (max-width: 900px)
+{
+
+
+nav
+{
+    padding: 5px 30px;
+}
+nav ul li.items
+{
+    width: 100%;
+    display: none;
+}
+nav ul li.items.show
+{
+    display: block;
+
+}
+nav ul li.btn
+{
+    display: block;
+}
+nav ul li.items:hover::after
+{
+    opacity: 0;
+}
+nav ul li.items:hover::before
+{
+    opacity: 0;
+}
+
+nav ul li.items:hover
+{
+    background: #fc5f3c;
+}
+nav ul li:hover a
+{
+    color: #fff;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
